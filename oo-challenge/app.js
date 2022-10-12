@@ -126,7 +126,17 @@ class Garage {
     this.capacity = capacity;
   }
 
-  add() {
-    return 'Verhicle added!'
+  add(obj) {
+    if (this.vehicles.length >= 2) {
+      return 'Sorry, we\'re full.'
+    } else {
+      this.vehicles.push(obj);
+    }
+    return this.vehicles;
   }
 }
+
+let garage = new Garage(2);
+garage.add(new Car("Hyundai", "Elantra", 2015));
+garage.add(new Motorcycle("Honda", "Rider", 2019));
+
