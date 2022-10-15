@@ -1,5 +1,3 @@
-console.log('Loaded ...')
-
 class Game {
   constructor(currPlayer = 1, width = 7, height = 6) {
     this.width      = width;
@@ -17,7 +15,10 @@ class Game {
   }
 
   makeHtmlBoard() {
-    const board = document.getElementById('board');
+    const game = document.querySelector('#game');
+
+    const board = document.createElement('table');
+    board.setAttribute('id', 'board');
 
     const top = document.createElement('tr');
     top.setAttribute('id', 'column-top');
@@ -41,6 +42,7 @@ class Game {
       }
   
       board.append(row);
+      game.append(board);
     }
   }
 
@@ -68,8 +70,6 @@ class Game {
   }
 
   handleClick(evt) {
-    console.log(this)
-
     const x = +evt.target.id;
 
     const y = this.findSpotForCol(x);
@@ -123,10 +123,20 @@ class Game {
         }
       }
     }
-  }
-
-  
+  } 
 }
 
-const game = new Game;
+const start = document.querySelector('#startGame');
+let active = false;
+start.addEventListener('click', function() {
+  if (!active) {
+    active = true;
+    start.innerHTML = 'Restart'
+    new Game;
+  } else {
+    const board = document.querySelector('#board');
+    board.remove();
+    new Game;
+  }
+})
 
