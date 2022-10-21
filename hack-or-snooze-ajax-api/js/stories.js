@@ -50,3 +50,22 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+async function addStory(evt) {
+  evt.preventDefault();
+
+  const inputs = evt.target.querySelectorAll('input[type=text]');
+  const formData = {}
+  for (let input of inputs) {
+    formData[input.name] = input.value;
+  }
+  console.log(formData);
+
+  let newStory = await storyList.addStory(currentUser, formData);
+
+  putStoriesOnPage();
+}
+
+$addstoryForm.on("submit", addStory);
+
+
