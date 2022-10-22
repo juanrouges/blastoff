@@ -7,6 +7,9 @@ const $body = $("body");
 const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
 
+// selector that finds all three story lists
+const $storiesLists = $(".stories-list");
+
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
 const $addstoryForm = $("#addstory-form");
