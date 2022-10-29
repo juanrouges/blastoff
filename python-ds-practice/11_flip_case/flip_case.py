@@ -1,3 +1,7 @@
+from curses.ascii import islower, isupper
+from tkinter.messagebox import RETRY
+
+
 def flip_case(phrase, to_swap):
     """Flip [to_swap] case each time it appears in phrase.
 
@@ -11,3 +15,12 @@ def flip_case(phrase, to_swap):
         'AaaaHHH'
 
     """
+    string = ""
+
+    for item in phrase:
+        if to_swap.lower() == item.lower():
+            string += item.swapcase()
+        else:
+            string += item
+
+    return string 
