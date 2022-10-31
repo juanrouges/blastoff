@@ -11,3 +11,14 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+    num_count = 0
+    num_winner = None
+
+    for num in nums:
+        if nums.count(num) > num_count:
+            num_count = nums.count(num)
+            num_winner = num
+
+    return num_winner
+        
+
