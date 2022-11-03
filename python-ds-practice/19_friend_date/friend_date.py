@@ -1,3 +1,7 @@
+elmo = ('Elmo', 5, ['hugging', 'being nice'])
+sauron = ('Sauron', 5000, ['killing hobbits', 'chess'])
+gandalf = ('Gandalf', 10000, ['waving wands', 'chess'])
+
 def friend_date(a, b):
     """Given two friends, do they have any hobbies in common?
 
@@ -16,3 +20,11 @@ def friend_date(a, b):
         >>> friend_date(sauron, gandalf)
         True
     """
+    hobbies_common = []
+
+    for hobbies_one in a[2]:
+        for hobbies_two in b[2]:
+            if hobbies_one == hobbies_two:
+                hobbies_common.append(hobbies_two)
+
+    return len(hobbies_common) > 0

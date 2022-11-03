@@ -1,3 +1,6 @@
+from cProfile import run
+
+
 def sum_pairs(nums, goal):
     """Return tuple of first pair of nums that sum to goal.
 
@@ -21,3 +24,17 @@ def sum_pairs(nums, goal):
         >>> sum_pairs([11, 20, 4, 2, 1, 5], 100)
         ()
     """
+    key = 0
+
+    while key < len(nums):
+        for num in nums:
+            if nums[key] + num == goal:
+                return (nums[key], num)
+        
+        key = key + 1
+    
+        
+
+    
+        
+
