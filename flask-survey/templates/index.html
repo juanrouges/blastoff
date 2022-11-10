@@ -1,4 +1,14 @@
 {%extends "master.html"%} {%block main%}
-<h1>Hello this is a survey</h1>
-<p>I would like you to answer some questions</p>
+<h1>{{title}}</h1>
+<p>{{instructions}}</p>
+<ul>
+  {%for question in questions%}
+  <li>
+    <div>{{question.question}}</div>
+    {%for choice in question.choices%}
+    <div>{{choice}}</div>
+    {%endfor%}
+  </li>
+  {%endfor%}
+</ul>
 {%endblock%}
