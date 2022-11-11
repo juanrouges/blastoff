@@ -1,14 +1,5 @@
 {%extends "master.html"%} {%block main%}
 <h1>{{title}}</h1>
 <p>{{instructions}}</p>
-<ul>
-  {%for question in questions%}
-  <li>
-    <div>{{question.question}}</div>
-    {%for choice in question.choices%}
-    <div>{{choice}}</div>
-    {%endfor%}
-  </li>
-  {%endfor%}
-</ul>
+<a href="/questions">Start Survey</a>
 {%endblock%}

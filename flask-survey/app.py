@@ -14,6 +14,17 @@ debug = DebugToolbarExtension(app)
 def renderHome():
   title = satisfaction_survey.title
   instructions = satisfaction_survey.instructions
-  questions = satisfaction_survey.questions
 
-  return render_template("index.html", title=title, instructions=instructions, questions=questions)
+  return render_template("index.html", title=title, instructions=instructions)
+
+@app.route("/questions/<int:id>")
+def renderQuestion(id):
+  questions = satisfaction_survey.questions[id]
+
+  return render_template("question.html", questions=questions)
+
+@app.route("/questions/choice")
+def addChoice():
+  return "Helo"
+
+responses = []

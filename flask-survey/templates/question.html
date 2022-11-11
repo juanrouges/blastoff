@@ -1,0 +1,19 @@
+{%extends "master.html"%} {%block title%}Survey questions{%endblock%} {%block
+main%}
+<div>{{questions.question}}</div>
+<form action="/questions/choice">
+  {%for choice in questions.choices%}
+  <div>
+    <input
+      id="{{choice}}"
+      type="radio"
+      value="{{choice}}"
+      name="survey_choices"
+    />
+    <label for="{{choice}}">{{choice}}</label>
+  </div>
+  {%endfor%}
+  <button>Submit</button>
+</form>
+
+{%endblock%}
