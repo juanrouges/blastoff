@@ -16,3 +16,15 @@ SELECT app_name, rating, reviews FROM analytics WHERE rating <= 5 ORDER BY ratin
 SELECT app_name, reviews, rating FROM analytics WHERE rating >= 4.8 ORDER BY reviews desc LIMIT 1;
 
 -- 6. Find the average rating for each category ordered by the highest rated to lowest rated. --
+SELECT category, AVG(rating) FROM analytics GROUP BY category ORDER BY AVG desc;
+
+-- 7. Find the name, price, and rating of the most expensive app with a rating that’s less than 3. --
+SELECT MAX(price) FROM analytics WHERE rating < 3;
+
+-- 8. Find all apps with a min install not exceeding 50, that have a rating. Order your results by highest rated first. --
+
+-- 9. Find the names of all apps that are rated less than 3 with at least 10000 reviews. --
+
+-- 10. Find the top 10 most-reviewed apps that cost between 10 cents and a dollar. --
+
+-- 11. Find the most out of date app. Hint: You don’t need to do it this way, but it’s possible to do with a subquery: http://www.postgresqltutorial.com/postgresql-max-function/ --
