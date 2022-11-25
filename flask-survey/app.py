@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_debugtoolbar import DebugToolbarExtension
 
 from surveys import satisfaction_survey
@@ -23,8 +23,10 @@ def renderQuestion(id):
 
   return render_template("question.html", questions=questions)
 
-@app.route("/questions/choice")
+@app.route("/questions/choice", methods=["POST", "GET"])
 def addChoice():
-  return "Helo"
+  choice = request.form["survey_choice"]
+
+  return "Hello"
 
 responses = []
