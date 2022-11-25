@@ -40,6 +40,6 @@ DELETE FROM products WHERE price < 25;
 UPDATE products SET price = price+20;
 
 -- 14. There is a new company policy: everything is returnable. Update the database accordingly. --
-
+UPDATE products SET can_be_returned = true; 
 
 
