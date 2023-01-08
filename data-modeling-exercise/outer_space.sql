@@ -12,9 +12,30 @@ CREATE TABLE planets
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   orbital_period_in_years FLOAT NOT NULL,
-  orbits_around TEXT NOT NULL,
-  galaxy TEXT NOT NULL,
-  moons TEXT[]
+  orbits_around orbits_around_id,
+  galaxy galaxies_id,
+  moon moon_id,
+  -- orbits_around TEXT NOT NULL,
+  -- galaxy TEXT NOT NULL,
+  -- moons TEXT[]
+);
+
+CREATE TABLE orbits_around
+(
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+);
+
+CREATE TABLE galaxies
+(
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+);
+
+CREATE TABLE moons
+(
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
 );
 
 INSERT INTO planets
