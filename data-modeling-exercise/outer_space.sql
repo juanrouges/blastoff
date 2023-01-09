@@ -15,9 +15,6 @@ CREATE TABLE planets
   orbits_around orbits_around_id,
   galaxy galaxies_id,
   moon moon_id,
-  -- orbits_around TEXT NOT NULL,
-  -- galaxy TEXT NOT NULL,
-  -- moons TEXT[]
 );
 
 CREATE TABLE orbits_around

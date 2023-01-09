@@ -10,17 +10,43 @@ CREATE DATABASE air_traffic;
 CREATE TABLE tickets
 (
   id SERIAL PRIMARY KEY,
-  first_name TEXT NOT NULL,
-  last_name TEXT NOT NULL,
+  customer customers_id,
+  airline airlines_id,
   seat TEXT NOT NULL,
   departure TIMESTAMP NOT NULL,
   arrival TIMESTAMP NOT NULL,
-  airline TEXT NOT NULL,
-  from_city TEXT NOT NULL,
-  from_country TEXT NOT NULL,
-  to_city TEXT NOT NULL,
-  to_country TEXT NOT NULL
+  from_city city_id UNIQUE,
+  from_country countries_id UNIQUE,
+  to_city city_id UNIQUE,
+  to_country countries_id UNIQUE
 );
+
+CREATE TABLE airlines
+(
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+);
+
+CREATE TABLE customers
+(
+  id SERIAL PRIMARY KEY,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+);
+
+CREATE TABLE countries
+(
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+);
+
+CREATE TABLE cities
+(
+  id SERIAL PRIMARY KEY,
+  country countries_id,
+  name TEXT NOT NULL,
+);
+
 
 INSERT INTO tickets
   (first_name, last_name, seat, departure, arrival, airline, from_city, from_country, to_city, to_country)
