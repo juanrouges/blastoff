@@ -28,3 +28,11 @@ SELECT app_name, rating, price AS max FROM analytics WHERE rating < 3 ORDER BY m
 -- 10. Find the top 10 most-reviewed apps that cost between 10 cents and a dollar. --
 
 -- 11. Find the most out of date app. Hint: You don’t need to do it this way, but it’s possible to do with a subquery: http://www.postgresqltutorial.com/postgresql-max-function/ --
+
+-- 12. Find the most expensive app (the query is very similar to #11). --
+
+-- 13. Count all the reviews in the Google Play Store. --
+
+-- 14. Find all the categories that have more than 300 apps in them. --
+
+-- 15.  Find the app that has the highest proportion of min_installs to reviews, among apps that have been installed at least 100,000 times. Display the name of the app along with the number of reviews, the min_installs, and the proportion. --
