@@ -53,7 +53,16 @@ def edit_user_form(user_id):
 
 @app.route("/users/<int:user_id>/edit",methods=["POST"])
 def edit_user(user_id):
-  return redirect("/users/24")
+  update_user = User.query.get(user_id)
+
+  update_user.first_name = request.form['first_name']
+  update_user.last_name = request.form['last_name']
+  update_user.image_url = request.form['image_url']
+
+  db.session.add(update_user)
+  db.session.commit()
+
+  return redirect("/users")
 
 @app.route("/users/<int:user_id>/delete",methods=["POST"])
 def delte_user(user_id):
