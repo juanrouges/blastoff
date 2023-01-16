@@ -29,7 +29,17 @@ def add_user_form():
 
 @app.route("/users/new", methods=["POST"])
 def adding_user():
-  return redirect("/users/24")
+
+  first_name = request.form['first_name']
+  last_name = request.form['last_name']
+  image_url = request.form['image_url']
+
+  new_user = User(first_name=first_name, last_name=last_name, image_url = image_url or None)
+
+  db.session.add(new_user)
+  db.session.commit()
+
+  return redirect(f"/users/{new_user.id}")
 
 @app.route("/users/<int:user_id>")
 def user_details(user_id):
