@@ -15,11 +15,26 @@
   </head>
 
   <body>
-    <header style="background-color: aquamarine; height: 80px">Header</header>
-    <div class="container">
+    <header
+      class="bold"
+      style="
+        background-color: #f2f2f2;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+      "
+    >
+      <h4>Blogly</h4>
+    </header>
+    <div class="container" style="padding-top: 24px; padding-bottom: 24px">
       <div class="row">
-        <aside class="col-4">Sidebar</aside>
-        <main class="col-8">Main</main>
+        <aside class="col-3">
+          {% block aside %} [ASIDE CONTENT GOES HERE] {% endblock %}
+        </aside>
+        <main class="col-9">
+          {% block main %} [MAIN CONTENT GOES HERE] {% endblock %}
+        </main>
       </div>
     </div>
   </body>

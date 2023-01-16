@@ -9,7 +9,7 @@ def connect_db(app):
 class User(db.Model):
   __tablename__ = "users"
 
-  id = db.column(db.Integer, primary_key=True, autoincrement=True)
-  first_name = db.column(db.String(20), nullable=False)
-  last_name = db.column(db.String(20), nullable=False)
-  image_url = db.column(db.String(100), default="https://placehold.co/600x400")
+  id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+  first_name = db.Column(db.String(20), nullable=False)
+  last_name = db.Column(db.String(20), nullable=False)
+  image_url = db.Column(db.String(100), default="https://placehold.co/600x400")

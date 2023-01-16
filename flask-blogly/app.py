@@ -16,4 +16,12 @@ connect_db(app)
 
 @app.route('/')
 def home_page():
-  return render_template('root.html')
+  return render_template("home.html")
+
+@app.route('/add-user')
+def add_user_form():
+  return render_template("add_user.html")
+
+@app.route('/user/<int:user_id>')
+def user_details(user_id):
+  return render_template("user.html", user_id=user_id)
