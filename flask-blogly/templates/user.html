@@ -7,16 +7,15 @@
 </div>
 {% endblock %} {% block main %}
 <div>
-  <h1>{{user_id}} John Doe</h1>
-  <img
-    src="https://placehold.co/600x400"
-    width="600"
-    height="400"
-    alt="profile pic"
-  />
+  <h1>{{user.id}} {{user.first_name}} {{user.last_name}}</h1>
+  <img src="{{user.image_url}}" width="600" height="400" alt="profile pic" />
   <div style="margin-top: 12px">
-    <button class="btn btn-primary" style="margin-right: 12px">Edit</button
-    ><button class="btn btn-secondary">Delete</button>
+    <a
+      class="btn btn-primary"
+      style="margin-right: 12px"
+      href="/users/{{user.id}}/edit"
+      >Edit</a
+    ><a class="btn btn-secondary">Delete</a>
   </div>
 </div>
 {% endblock %}

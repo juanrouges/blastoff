@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from models import db, connect_db, User
 
 app = Flask(__name__)
@@ -33,11 +33,13 @@ def adding_user():
 
 @app.route("/users/<int:user_id>")
 def user_details(user_id):
-  return render_template("user.html", user_id=user_id)
+  user = User.query.get(user_id)
+  return render_template("user.html", user=user)
 
 @app.route("/users/<int:user_id>/edit")
 def edit_user_form(user_id):
-  return render_template("user_form.html", user_id=user_id)
+  user = User.query.get(user_id)
+  return render_template("user_form.html", user=user)
 
 @app.route("/users/<int:user_id>/edit",methods=["POST"])
 def edit_user(user_id):

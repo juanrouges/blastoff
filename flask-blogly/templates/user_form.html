@@ -7,7 +7,8 @@
 </div>
 {% endblock %} {% block main %}
 <div>
-  <h1>Add Users</h1>
+  <h1>{% if user %}Edit{% else %}Add{% endif %} User</h1>
+
   <form action="" method="POST">
     <div class="mb-3">
       <label class="form-label" for="first_name">First Name</label>
@@ -16,17 +17,32 @@
         name="first_name"
         class="form-control"
         type="text"
+        value="{% if user %}{{user.first_name}}{% endif %}"
       />
     </div>
     <div class="mb-3">
       <label class="form-label" for="last_name">Last Name</label>
-      <input id="last_name" name="last_name" class="form-control" type="text" />
+      <input
+        id="last_name"
+        name="last_name"
+        class="form-control"
+        type="text"
+        value="{% if user %}{{user.last_name}}{% endif %}"
+      />
     </div>
     <div class="mb-3">
       <label class="form-label" for="image">First Name</label>
-      <input id="image" name="image" class="form-control" type="text" />
+      <input
+        id="image"
+        name="image"
+        class="form-control"
+        type="text"
+        value="{% if user %}{{user.image_url}}{% endif %}"
+      />
     </div>
-    <button class="btn btn-primary mb-3">Submit</button>
+    <button class="btn btn-primary mb-3">
+      {% if user %}Update{% else %}Submit{% endif %}
+    </button>
   </form>
 </div>
 {% endblock %}
