@@ -24,7 +24,7 @@ def users_list():
 
 @app.route("/users/new")
 def add_user_form():
-  return render_template("add_user.html")
+  return render_template("user_form.html")
 
 @app.route("/users/new", methods=["POST"])
 def adding_user():
@@ -36,7 +36,7 @@ def user_details(user_id):
 
 @app.route("/users/<int:user_id>/edit")
 def edit_user_form(user_id):
-  return render_template("add_user.html", user_id=user_id)
+  return render_template("user_form.html", user_id=user_id)
 
 @app.route("/users/<int:user_id>/edit",methods=["POST"])
 def edit_user(user_id):

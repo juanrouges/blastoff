@@ -1,12 +1,22 @@
 {% extends 'root.html' %} {% block aside %}
 <div class="d-flex align-items-start">
   <div class="nav flex-column nav-pills me-3">
-    <a class="nav-link" href="/">Home</a>
-    <a class="nav-link" href="/">Add user</a>
+    <a class="nav-link" href="/users">All Users</a>
+    <a class="nav-link" href="/users/new">Add user</a>
   </div>
 </div>
 {% endblock %} {% block main %}
 <div>
-  <h1>{{user_id}}</h1>
+  <h1>{{user_id}} John Doe</h1>
+  <img
+    src="https://placehold.co/600x400"
+    width="600"
+    height="400"
+    alt="profile pic"
+  />
+  <div style="margin-top: 12px">
+    <button class="btn btn-primary" style="margin-right: 12px">Edit</button
+    ><button class="btn btn-secondary">Delete</button>
+  </div>
 </div>
 {% endblock %}

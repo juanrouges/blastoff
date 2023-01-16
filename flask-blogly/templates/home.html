@@ -1,16 +1,16 @@
 {% extends 'root.html' %} {% block aside %}
 <div class="d-flex align-items-start">
   <div class="nav flex-column nav-pills me-3">
-    <a class="nav-link" href="/">Home</a>
-    <a class="nav-link" href="/">Add user</a>
+    <a class="nav-link" href="/users">All Users</a>
+    <a class="nav-link" href="/users/new">Add user</a>
   </div>
 </div>
 {% endblock %} {% block main %}
 <div>
   <h1>Users</h1>
   <ul>
-    <li><a href="/">Jhon Doe</a></li>
-    <li><a href="/">Jane Doe</a></li>
+    <li><a href="/users/1">Jhon Doe</a></li>
+    <li><a href="/users/2">Jane Doe</a></li>
   </ul>
 </div>
 {% endblock %}
