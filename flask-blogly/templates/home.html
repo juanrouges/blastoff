@@ -8,9 +8,17 @@
 {% endblock %} {% block main %}
 <div>
   <h1>Users</h1>
-  <ul>
-    <li><a href="/users/1">Jhon Doe</a></li>
-    <li><a href="/users/2">Jane Doe</a></li>
-  </ul>
+  
+  {% if users %}
+    <ul>
+      {% for user in users %}
+        <li><a href="/users/{{user.id}}"">{{ user.first_name }} {{ user.last_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div>No users to display</div>
+  {% endif %}
+  
+
 </div>
 {% endblock %}

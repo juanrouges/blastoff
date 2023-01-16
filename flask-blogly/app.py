@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect
-from models import db, connect_db
+from models import db, connect_db, User
 
 app = Flask(__name__)
 
@@ -20,7 +20,8 @@ def home_page():
 
 @app.route("/users")
 def users_list():
-  return render_template("home.html")
+  users = User.query.all()
+  return render_template("home.html", users=users)
 
 @app.route("/users/new")
 def add_user_form():
