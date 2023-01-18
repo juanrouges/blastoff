@@ -1,0 +1,21 @@
+{% extends 'root.html' %} {% block aside %}
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3">
+    <a class="nav-link" href="/users">All Users</a>
+    <a class="nav-link" href="/users/new">Add user</a>
+  </div>
+</div>
+{% endblock %} {% block main %}
+<div>
+  <h1>{{user.id}} {{user.first_name}} {{user.last_name}}</h1>
+  <img src="{{user.image_url}}" width="600" height="400" alt="profile pic" />
+  <div style="margin-top: 12px">
+    <a
+      class="btn btn-primary"
+      style="margin-right: 12px"
+      href="/users/{{user.id}}/edit"
+      >Edit</a
+    ><a class="btn btn-secondary">Delete</a>
+  </div>
+</div>
+{% endblock %}

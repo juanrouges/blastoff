@@ -20,3 +20,13 @@ class User(db.Model):
   def get_full_name(self):
     full_name = f"{self.first_name} {self.last_name}"
     return full_name
+
+class Post(db.Model):
+  __tablename__ = "posts"
+  
+  id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+  title = db.Column(db.Text, nullable=False)
+  content = db.Column(db.Text, nullable=False)
+  # How can I inject default datetime on save?, ask mentor
+  created_at = db.Column(db.DateTime)
+  user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False,)
