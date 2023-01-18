@@ -30,3 +30,5 @@ class Post(db.Model):
   # How can I inject default datetime on save?, ask mentor
   created_at = db.Column(db.DateTime)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False,)
+  
+  usr = db.relationship("User", backref="posts")
