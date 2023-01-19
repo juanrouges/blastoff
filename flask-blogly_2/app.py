@@ -66,6 +66,12 @@ def edit_user(user_id):
 
   return redirect("/users")
 
+@app.route("/posts/<int:post_id>")
+def display_post(post_id):
+  post = Post.query.get(post_id)
+
+  return render_template("post.html", post=post)
+
 @app.route("/users/<int:user_id>/posts/new")
 def add_new_post(user_id):
   user = User.query.get(user_id)
