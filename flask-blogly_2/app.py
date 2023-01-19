@@ -108,7 +108,11 @@ def process_edit_post(post_id):
 
   return redirect(f"/posts/{post_id}")
 
-# Delete route needs to be completed
+@app.errorhandler(404)
+def page_not_found(error):
+  return render_template("404.html", error=error)
+
+# Delete route needs to be completed for user and post
 @app.route("/users/<int:user_id>/delete",methods=["POST"])
 def delte_user(user_id):
   return redirect("/users")
