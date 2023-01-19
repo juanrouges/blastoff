@@ -23,6 +23,9 @@ class User(db.Model):
 
 class Post(db.Model):
   __tablename__ = "posts"
+
+  def __repr__(self):
+    return f"<Post id={self.id} title={self.title} user_id={self.user_id} >"
   
   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
   title = db.Column(db.Text, nullable=False)
@@ -30,5 +33,5 @@ class Post(db.Model):
   # How can I inject default datetime on save?, ask mentor
   created_at = db.Column(db.DateTime)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False,)
-  
+
   usr = db.relationship("User", backref="posts")

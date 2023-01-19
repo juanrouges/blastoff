@@ -18,4 +18,12 @@
     ><a class="btn btn-secondary">Delete</a>
   </div>
 </div>
+<div>
+  <h1>Posts</h1>
+  <ul>
+    {% for post in posts %}
+    <li><a href="/posts/{{post.id}}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}
