@@ -10,8 +10,8 @@
   <h1>{{ post.title }}</h1>
   <p>{{ post.content }}</p>
   <div class="mt-4">
-    <a class="btn btn-primary" style="margin-right: 12px" href="">Edit</a
-    ><a class="btn btn-secondary" href="">Delete</a>
+    <a class="btn btn-primary" href="/posts/{{post.id}}/edit">Edit</a>
+    <a class="btn btn-secondary" href="">Delete</a>
   </div>
 </div>
 {% endblock %}

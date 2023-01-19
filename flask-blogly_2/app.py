@@ -90,6 +90,24 @@ def save_post(user_id):
 
   return redirect(f"/users/{user_id}")
 
+@app.route("/posts/<int:post_id>/edit")
+def edit_post(post_id):
+  post = Post.query.get(post_id)
+
+  return render_template("post_form.html", post=post)
+
+@app.route("/posts/<int:post_id>/edit", methods=["POST"])
+def process_edit_post(post_id):
+  post = Post.query.get(post_id)
+
+  post.title = request.form['title']
+  post.content = request.form['content']
+
+  db.session.add(post)
+  db.session.commit()
+
+  return redirect(f"/posts/{post_id}")
+
 # Delete route needs to be completed
 @app.route("/users/<int:user_id>/delete",methods=["POST"])
 def delte_user(user_id):

@@ -7,7 +7,9 @@
 </div>
 {% endblock %} {% block main %}
 <div>
-  <h1>Add Post for {{user.get_full_name()}}</h1>
+  <h1>
+    {% if post %}Edit Post{% else %}Add Post for {{user.get_full_name()}}{% endif %}
+  </h1>
 
   <form action="" method="POST">
     <div class="mb-3">
@@ -17,7 +19,7 @@
         name="title"
         class="form-control"
         type="text"
-        value=""
+        value="{% if post %}{{post.title}}{% endif %}"
       />
     </div>
     <div class="mb-3">
@@ -26,8 +28,7 @@
         id="content"
         name="content"
         class="form-control"
-        value=""
-      ></textarea>
+      >{% if post %}{{post.content}}{% endif %}</textarea>
     </div>
     <button class="btn btn-primary mb-3">Submit</button>
   </form>
