@@ -6,8 +6,8 @@
   </div>
 </div>
 {% endblock %} {% block main %}
-<div>
-  <h1>{{user.id}} {{user.first_name}} {{user.last_name}}</h1>
+<div class="mb-4">
+  <h1>{{user.id}} {{user.get_full_name()}}</h1>
   <img src="{{user.image_url}}" width="600" height="400" alt="profile pic" />
   <div style="margin-top: 12px">
     <a
@@ -25,5 +25,6 @@
     <li><a href="/posts/{{post.id}}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
+  <a class="btn btn-primary" href=" /users/{{user.id}}/posts/new">Add Post</a>
 </div>
 {% endblock %}
