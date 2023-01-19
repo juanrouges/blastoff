@@ -78,6 +78,18 @@ def add_new_post(user_id):
 
   return render_template("post_form.html", user=user)
 
+@app.route("/users/<int:user_id>/posts/new", methods=["POST"])
+def save_post(user_id):
+  title = request.form['title']
+  content = request.form['content']
+
+  post = Post(title=title, content=content, user_id=user_id)
+
+  db.session.add(post)
+  db.session.commit()
+
+  return redirect(f"/users/{user_id}")
+
 # Delete route needs to be completed
 @app.route("/users/<int:user_id>/delete",methods=["POST"])
 def delte_user(user_id):
