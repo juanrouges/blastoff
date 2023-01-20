@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 
 db = SQLAlchemy()
 
@@ -30,8 +31,7 @@ class Post(db.Model):
   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
   title = db.Column(db.Text, nullable=False)
   content = db.Column(db.Text, nullable=False)
-  # How can I inject default datetime on save?, ask mentor
-  created_at = db.Column(db.DateTime)
-  user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False,)
+  created_at = db.Column(db.DateTime, default=datetime.datetime.now())
+  user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
   usr = db.relationship("User", backref="posts")

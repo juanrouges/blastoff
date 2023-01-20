@@ -8,6 +8,7 @@
 {% endblock %} {% block main %}
 <div class="mb-4">
   <h1>{{ post.title }}</h1>
+  <label>{{ post.created_at }}</label>
   <p>{{ post.content }}</p>
   <div class="mt-4">
     <a class="btn btn-primary" href="/posts/{{post.id}}/edit">Edit</a>
