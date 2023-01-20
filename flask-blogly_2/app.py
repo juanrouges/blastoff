@@ -43,14 +43,14 @@ def adding_user():
 
 @app.route("/users/<int:user_id>")
 def user_details(user_id):
-  user = User.query.get(user_id)
+  user = User.query.get_or_404(user_id)
   user_posts = Post.query.filter(Post.user_id == user_id)
   print(user_posts)
   return render_template("user.html", user=user, posts=user_posts)
 
 @app.route("/users/<int:user_id>/edit")
 def edit_user_form(user_id):
-  user = User.query.get(user_id)
+  user = User.query.get_or_404(user_id)
   return render_template("user_form.html", user=user)
 
 @app.route("/users/<int:user_id>/edit",methods=["POST"])
@@ -68,13 +68,13 @@ def edit_user(user_id):
 
 @app.route("/posts/<int:post_id>")
 def display_post(post_id):
-  post = Post.query.get(post_id)
+  post = Post.query.get_or_404(post_id)
 
   return render_template("post.html", post=post)
 
 @app.route("/users/<int:user_id>/posts/new")
 def add_new_post(user_id):
-  user = User.query.get(user_id)
+  user = User.query.get_or_404(user_id)
 
   return render_template("post_form.html", user=user)
 
@@ -92,7 +92,7 @@ def save_post(user_id):
 
 @app.route("/posts/<int:post_id>/edit")
 def edit_post(post_id):
-  post = Post.query.get(post_id)
+  post = Post.query.get_or_404(post_id)
 
   return render_template("post_form.html", post=post)
 
