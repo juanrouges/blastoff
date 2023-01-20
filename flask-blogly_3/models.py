@@ -35,3 +35,23 @@ class Post(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
   usr = db.relationship("User", backref="posts")
+
+class Tag(db.Model):
+  __tablename__ = "tags"
+
+  def __repr__(self):
+    return f"<Tag id={self.id} name={self.title} >"
+
+  id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+  name = db.Column(db.Text, unique=True, nullable=False)
+
+class PostTag(db.Model):
+  __tablename__ = "post_tags"
+
+  def __repr__(self):
+    return f"<PostTag tag_id={self.tag_id} post_id={self.post_id} >"
+
+  tag_id = db.Column(db.Integer, db.ForeignKey("tag.id"), nullable=False)
+  post_id = db.Column(db.Integer, db.ForeignKey("post.id"), nullable=False)
+
+
