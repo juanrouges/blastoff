@@ -1,0 +1,18 @@
+{% extends 'root.html' %} {% block aside %}
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3">
+    <a class="nav-link" href="/users">All Users</a>
+    <a class="nav-link" href="/users/new">Add user</a>
+  </div>
+</div>
+{% endblock %} {% block main %}
+<div class="mb-4">
+  <h1>{{ post.title }}</h1>
+  <label>{{ post.created_at }}</label>
+  <p>{{ post.content }}</p>
+  <div class="mt-4">
+    <a class="btn btn-primary" href="/posts/{{post.id}}/edit">Edit</a>
+    <a class="btn btn-secondary" href="">Delete</a>
+  </div>
+</div>
+{% endblock %}
