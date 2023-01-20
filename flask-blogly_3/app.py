@@ -3,7 +3,7 @@ from models import db, connect_db, User, Post
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///blogly3"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///blogly"
 
 app.config["SECRET_KEY"] = "chicharronesconcalzones123"
 # ================== Whar are this for? =======================

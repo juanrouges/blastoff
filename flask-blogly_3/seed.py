@@ -2,7 +2,7 @@
 
 """Create sample data for db"""
 
-from models import User, Post, db
+from models import User, Post, Tag, PostTag, db
 from app import app
 
 # create all tables
@@ -27,10 +27,34 @@ post5 = Post(title="Kalisto El Polocuredi Yo Cantares", content="Porttitor rhonc
 post6 = Post(title="Palutio Marcante Yito Yundante", content="Quam adipiscing vitae proin sagittis nisl rhoncus mattis. Mauris vitae ultricies leo integer. Vitae congue eu consequat ac felis donec. Lacinia quis vel eros donec ac odio tempor orci. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Quis risus sed vulputate odio ut enim blandit volutpat. Etiam tempor orci eu lobortis. Elementum tempus egestas sed sed risus. Fermentum leo vel orci porta non. Tellus orci ac auctor augue.", user_id=6)
 post7 = Post(title="Camelisto Parrenteris Los Manjares", content="Non tellus orci ac auctor augue. Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Sed euismod nisi porta lorem mollis. Faucibus turpis in eu mi. Ipsum dolor sit amet consectetur adipiscing elit. Est pellentesque elit ullamcorper dignissim. In hac habitasse platea dictumst quisque sagittis purus sit. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ac odio tempor orci dapibus ultrices in iaculis nunc sed. At elementum eu facilisis sed odio morbi quis. Aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin. Posuere lorem ipsum dolor sit. At erat pellentesque adipiscing commodo elit at. Est lorem ipsum dolor sit amet consectetur adipiscing elit.", user_id=5)
 
+# save tags
+tag1 = Tag(name="news")
+tag2 = Tag(name="nature")
+tag3 = Tag(name="technology")
+tag4 = Tag(name="international")
+tag5 = Tag(name="design")
+tag6 = Tag(name="home")
+
+# save post tags
+post_tag1 = PostTag(tag_id=1, post_id=2)
+post_tag2 = PostTag(tag_id=2, post_id=1)
+post_tag3 = PostTag(tag_id=3, post_id=2)
+post_tag4 = PostTag(tag_id=4, post_id=6)
+post_tag5 = PostTag(tag_id=6, post_id=5)
+post_tag6 = PostTag(tag_id=4, post_id=2)
+
 # save users first
 db.session.add_all([juan, carolina, martina, lili, jose, lucas, colin])
 db.session.commit()
 
 # save posts second
 db.session.add_all([post1, post2, post3, post4, post5, post6, post7])
+db.session.commit()
+
+# save tags
+db.session.add_all([tag1, tag2, tag3, tag4, tag5, tag6])
+db.session.commit()
+
+# save post tags
+db.session.add_all([post_tag1, post_tag2, post_tag3, post_tag4, post_tag5, post_tag6])
 db.session.commit()

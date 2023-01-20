@@ -36,14 +36,20 @@ class Post(db.Model):
 
   usr = db.relationship("User", backref="posts")
 
+  tg = db.relationship('PostTag', backref="post")
+
 class Tag(db.Model):
   __tablename__ = "tags"
 
   def __repr__(self):
-    return f"<Tag id={self.id} name={self.title} >"
+    return f"<Tag id={self.id} name={self.name} >"
 
   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
   name = db.Column(db.Text, unique=True, nullable=False)
+
+  pst = db.relationship('PostTag', backref="tags")
+
+
 
 class PostTag(db.Model):
   __tablename__ = "post_tags"
@@ -51,7 +57,7 @@ class PostTag(db.Model):
   def __repr__(self):
     return f"<PostTag tag_id={self.tag_id} post_id={self.post_id} >"
 
-  tag_id = db.Column(db.Integer, db.ForeignKey("tag.id"), nullable=False)
-  post_id = db.Column(db.Integer, db.ForeignKey("post.id"), nullable=False)
+  tag_id = db.Column(db.Integer, db.ForeignKey("tags.id"), primary_key=True)
+  post_id = db.Column(db.Integer, db.ForeignKey("posts.id"), primary_key=True)
 
 
