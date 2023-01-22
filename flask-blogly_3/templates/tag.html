@@ -1,0 +1,28 @@
+{% extends 'root.html' %}
+
+<!--  -->
+{% block aside %}
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3">
+    <a class="nav-link" href="/users">Users</a>
+    <a class="nav-link" href="/users/new">Add user</a>
+    <a class="nav-link" href="/tags">Tags</a>
+  </div>
+</div>
+{% endblock %}
+
+<!--  -->
+{% block main %}
+<div class="mb-4">
+  <h1>{{tag.id}} {{tag.name}}</h1>
+  <div>Posts related to tag</div>
+  <div class="mt-4">
+    <a
+      class="btn btn-primary"
+      style="margin-right: 12px"
+      href="/tags/{{tag.id}}/edit"
+      >Edit</a
+    ><a class="btn btn-secondary">Delete</a>
+  </div>
+</div>
+{% endblock %}

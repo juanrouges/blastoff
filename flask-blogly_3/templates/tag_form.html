@@ -1,0 +1,32 @@
+{% extends 'root.html' %}
+
+<!-- aside block -->
+{% block aside %}
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3">
+    <a class="nav-link" href="/users">Users</a>
+    <a class="nav-link" href="/users/new">Add user</a>
+    <a class="nav-link" href="/tags">Tags</a>
+  </div>
+</div>
+{% endblock %}
+
+<!-- main block -->
+{% block main %}
+<div>
+  <h1>{% if tag %}Edit {{tag.name}} Tag{% else %}Add New Tag{% endif %}</h1>
+  <form action="" method="POST">
+    <div class="mb-3">
+      <label class="form-label" for="name">Name</label>
+      <input
+        id="name"
+        name="name"
+        class="form-control"
+        type="text"
+        value="{% if tag %}{{tag.name}}{% endif %}"
+      />
+    </div>
+    <button class="btn btn-primary mb-3">Submit</button>
+  </form>
+</div>
+{% endblock %}

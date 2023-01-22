@@ -36,7 +36,7 @@ class Post(db.Model):
 
   usr = db.relationship("User", backref="posts")
 
-  tg = db.relationship('PostTag', backref="post")
+  tagged = db.relationship('PostTag', backref="post")
 
 class Tag(db.Model):
   __tablename__ = "tags"
@@ -47,9 +47,7 @@ class Tag(db.Model):
   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
   name = db.Column(db.Text, unique=True, nullable=False)
 
-  pst = db.relationship('PostTag', backref="tags")
-
-
+  post = db.relationship('PostTag', backref="tag")
 
 class PostTag(db.Model):
   __tablename__ = "post_tags"

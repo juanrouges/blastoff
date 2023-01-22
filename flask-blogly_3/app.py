@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-from models import db, connect_db, User, Post
+from models import db, connect_db, User, Post, Tag
 
 app = Flask(__name__)
 
@@ -7,8 +7,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///blogly"
 
 app.config["SECRET_KEY"] = "chicharronesconcalzones123"
 # ================== Whar are this for? =======================
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = True
 app.config["SQLALCHEMY_ECHO"] = True
 # =============================================================
 
@@ -107,6 +107,37 @@ def process_edit_post(post_id):
   db.session.commit()
 
   return redirect(f"/posts/{post_id}")
+
+@app.route("/tags")
+def display_tags():
+  tags = Tag.query.all()
+
+  return render_template("tags.html", tags=tags)
+
+@app.route("/tags/new")
+def adding_tag():
+
+  return render_template("tag_form.html")
+
+@app.route("/tags/new", methods=["POST"])
+def submiting_tag():
+  name = request.form["name"]
+  new_tag = Tag(name=name)
+
+  db.session.add(new_tag)
+  db.session.commit()
+
+  return redirect("/tags")
+
+@app.route("/tags/<int:tag_id>")
+def tag_info(tag_id):
+  tag = Tag.query.get_or_404(tag_id)
+  posts = Post.query.tagged.all()
+  tagged = posts.post
+
+  # print(posts)
+
+  return render_template('tag.html', tagged=tagged)
 
 @app.errorhandler(404)
 def page_not_found(error):
