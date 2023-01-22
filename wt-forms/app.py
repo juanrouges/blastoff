@@ -24,7 +24,7 @@ def add_snack():
   if form.validate_on_submit():
     name = form.name.data
     price = form.price.data
-    flash(f"Added {name} at ${price}")
-    return redirect("/add-snack")
+    flash(f"Snack added name: {name}, price: ${price}")
+    return redirect("/")
   else:
     return render_template("snack-form.html", form=form)

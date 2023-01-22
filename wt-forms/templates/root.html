@@ -15,7 +15,7 @@
     <div class="container">
       <!--  -->
       {% for msg in get_flashed_messages() %}
-      <div>{{msg}}</div>
+      <div class="msg">{{msg}}</div>
       {% endfor %}
       <!--  -->
       {% block main %} [MAIN CONTENT GOES HERE] {% endblock %}

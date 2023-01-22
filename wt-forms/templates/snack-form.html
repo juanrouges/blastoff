@@ -4,7 +4,7 @@
 {% block main %}
 <div>
   <h1>Add Snack Page</h1>
-  <form action="">
+  <form action="" method="POST">
     {{ form.hidden_tag() }}
     <!--  -->
     {% for field in form if field.widget.input_type != 'hidden'%}
