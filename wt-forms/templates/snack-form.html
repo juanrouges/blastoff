@@ -1,0 +1,21 @@
+{% extends 'root.html' %}
+
+<!-- main -->
+{% block main %}
+<div>
+  <h1>Add Snack Page</h1>
+  <form action="">
+    {{ form.hidden_tag() }}
+    <!--  -->
+    {% for field in form if field.widget.input_type != 'hidden'%}
+    <div class="form_group mb-2">
+      <!-- label and input -->
+      {{field.label}} {{field}}
+      <!-- error if any -->
+      {% for error in field.errors %} {{error}} {% endfor %}
+    </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}
