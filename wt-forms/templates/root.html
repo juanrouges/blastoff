@@ -12,6 +12,18 @@
     />
   </head>
   <body>
+    <header class="h-4" style="background-color: aqua; height: 70px">
+      <div class="container" style="height: inherit">
+        <div class="row" style="height: inherit">
+          <div class="col-3 align-self-center">
+            <a href="/" class="">WT-Form</a>
+          </div>
+          <div class="col-9 align-self-center text-end">
+            <a href="/add-snack">Form</a>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="container">
       <!--  -->
       {% for msg in get_flashed_messages() %}
